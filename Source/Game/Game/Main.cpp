@@ -18,12 +18,14 @@ int main(int argc, char* argv[]) {
 	renderer.CreateWindow("CSC196", 800, 600);
 
 	while (true) {
-		//renderer.SetColor(255, 0, 0, 255);
+		renderer.SetColor(0, 0, 0, 0);
 		renderer.BeginFrame();
 		//draw
-		renderer.SetColor(kiko::random(256), kiko::random(256), kiko::random(256), kiko::random(256));
-		renderer.DrawPoint(kiko::random(renderer.GetWidth()), kiko::random(renderer.GetHeight()));
-		//renderer.DrawLine();
+		for (int i = 0; i < 10000; i++) {
+			renderer.SetColor(kiko::random(256), kiko::random(256), kiko::random(256), kiko::random(256));
+			//renderer.DrawPoint(kiko::random(renderer.GetWidth()), kiko::random(renderer.GetHeight()));
+			renderer.DrawLine(kiko::random(renderer.GetWidth()), kiko::random(renderer.GetHeight()), kiko::random(renderer.GetWidth()), kiko::random(renderer.GetHeight()));
+		}
 		renderer.EndFrame();
 	}
 
