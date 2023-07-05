@@ -11,9 +11,23 @@ using namespace std;
 
 //ctrl +k +c = ez comment
 
-int main(){
+int main(int argc, char* argv[]) {
 
-	kiko::g_memoryTracker.DisplayInfo();
+	kiko::Renderer renderer;
+	renderer.Initialize();
+	renderer.CreateWindow("CSC196", 800, 600);
+
+	while (true) {
+		//renderer.SetColor(255, 0, 0, 255);
+		renderer.BeginFrame();
+		//draw
+		renderer.SetColor(kiko::random(256), kiko::random(256), kiko::random(256), kiko::random(256));
+		renderer.DrawPoint(kiko::random(renderer.GetWidth()), kiko::random(renderer.GetHeight()));
+		//renderer.DrawLine();
+		renderer.EndFrame();
+	}
+
+	/*kiko::g_memoryTracker.DisplayInfo();
 	int* p = new int;
 	kiko::g_memoryTracker.DisplayInfo();
 	delete p;
@@ -21,7 +35,7 @@ int main(){
 
 	kiko::Time timer;
 	for (int i = 0; i < 1000000; i++) {}
-	cout << timer.GetElapsedSeconds() << endl;
+	cout << timer.GetElapsedSeconds() << endl;*/
 
 	/*auto start = std::chrono::high_resolution_clock::now();
 	for (int i = 0; i < 1000000000; i++) {}
