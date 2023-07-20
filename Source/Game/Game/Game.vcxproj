@@ -155,15 +155,32 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Engine\Audio\Audio.vcxproj">
+      <Project>{9c1f6ccd-dc88-45cf-9ca2-e70f3a6cb5dd}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\..\Engine\Core\Core.vcxproj">
       <Project>{5c543964-7d0d-4d74-ae5e-9121caa70f3d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Engine\Framework\Framework.vcxproj">
+      <Project>{25ea956a-24f7-40d0-a4f9-efa076e4e619}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Engine\Input\Input.vcxproj">
+      <Project>{8048ae5c-bbbf-40cb-881a-61758f3a2cf0}</Project>
     </ProjectReference>
     <ProjectReference Include="..\..\Engine\Renderer\Renderer.vcxproj">
       <Project>{ca810d56-a6eb-40c1-8218-62902393fc5f}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Weapon.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

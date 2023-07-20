@@ -15,6 +15,7 @@ namespace kiko
 			m_startTime{ clock::now() }
 		{}
 
+		void Tick();
 		void Reset() { m_startTime = clock::now(); }
 
 		clock_rep GetElapsedNanoseconds();
@@ -22,7 +23,15 @@ namespace kiko
 		clock_rep GetElapsedMilliseconds();
 		float GetElapsedSeconds();
 
+		float GetTime() const { return m_time; }
+		float GetDeltaTime() const { return m_deltaTime; }
+
 	private:
+		float m_time;
+		float m_deltaTime;
 		clock::time_point m_startTime;
+		clock::time_point m_frameTime;
 	};
+
+	extern Time g_time;
 }

@@ -2,6 +2,8 @@
 
 namespace kiko
 {
+	Renderer g_renderer;
+
 	SDL_Renderer* renderer{ nullptr };
 	SDL_Window* window{ nullptr };
 	void CreateWindow(const std::string& title, int width, int height)
@@ -35,7 +37,7 @@ namespace kiko
 	{
 		SDL_RenderPresent(m_renderer);
 	}
-	void Renderer::SetColor(int r, int g, int b, int a)
+	void Renderer::SetColor(uint8_t r, uint8_t g, uint8_t b, uint8_t a)
 	{
 		SDL_SetRenderDrawColor(m_renderer, r, g, b, a);
 	}
@@ -43,8 +45,16 @@ namespace kiko
 	{
 		SDL_RenderDrawLine(m_renderer, x1, y1, x2, y2);
 	}
+	void Renderer::DrawLine(float x1, float y1, float x2, float y2)
+	{
+		SDL_RenderDrawLineF(m_renderer, x1, y1, x2, y2);
+	}
 	void Renderer::DrawPoint(int x, int y)
 	{
 		SDL_RenderDrawPoint(m_renderer, x, y);
+	}
+	void Renderer::DrawPoint(float x, float y)
+	{
+		SDL_RenderDrawPointF(m_renderer, x, y);
 	}
 }

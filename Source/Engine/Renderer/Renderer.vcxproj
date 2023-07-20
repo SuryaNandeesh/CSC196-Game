@@ -175,9 +175,13 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Model.cpp" />
+    <ClCompile Include="ModelManager.cpp" />
     <ClCompile Include="Render.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Model.h" />
+    <ClInclude Include="ModelManager.h" />
     <ClInclude Include="Render.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
