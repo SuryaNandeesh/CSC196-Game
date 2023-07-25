@@ -7,6 +7,9 @@
 #include "Framework/Actor.h"
 #include "Player.h"
 #include "Enemy.h"
+
+#include"Starfield.h"
+
 #include <iostream>
 #include <chrono>
 #include <vector>
@@ -62,8 +65,11 @@ int main(int argc, char* argv[])
 
 	kiko::g_inputSystem.Initialize();
 
-	kiko::AudioSystem().Initialize();
-	kiko::AudioSystem().AddAudio("metal pipe", "metal_pipe.wav");
+	kiko::g_audiosystem.Initialize();
+	kiko::g_audiosystem.AddAudio("metal pipe", "metal_pipe.wav");
+
+	unique_ptr<Starfield> game = make_unique<Starfield>();
+	game->Initialize();
 
 	//std::vector<kiko::vec2> points{ {10, -5}, { 0,0}, { 10, 5 } };
 
@@ -143,7 +149,7 @@ int main(int argc, char* argv[])
 			g_renderer.DrawPoint(star.m_pos.x, star.m_pos.y);
 		}
 		scene.Draw(kiko::g_renderer);
-		
+		game->Draw(kiko::g_renderer);
 		g_renderer.EndFrame();
 	}
 	scene.RemoveAll();
